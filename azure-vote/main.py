@@ -22,7 +22,7 @@ from opencensus.trace import config_integration
 from opencensus.trace.samplers import ProbabilitySampler
 from opencensus.trace.tracer import Tracer
 
-conn_str = 'InstrumentationKey=77e45d16-79b3-485c-b1d4-57621477eb97'
+conn_str = 'InstrumentationKey=e9f8f85b-3f84-40e5-bacf-d09dbee921a4'
 # Logging
 logger = logger = logging.getLogger(__name__)
 logger.addHandler(AzureLogHandler(connection_string=conn_str))
