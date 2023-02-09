@@ -24,7 +24,7 @@ from opencensus.trace.tracer import Tracer
 
 conn_str = 'InstrumentationKey=e9f8f85b-3f84-40e5-bacf-d09dbee921a4'
 # Logging
-logger = logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 logger.addHandler(AzureLogHandler(connection_string=conn_str))
 logger.addHandler(AzureEventHandler(connection_string=conn_str))
 
@@ -118,6 +118,11 @@ def index():
             # Get current values
             vote1 = r.get(button1).decode('utf-8')
             vote2 = r.get(button2).decode('utf-8')
+
+            properties = {'custom_dimensions': {'Cats Vote': vote1}}
+            logger.warning('Cats Vote ', extra=properties)
+            properties = {'custom_dimensions': {'Dogs Vote': vote2}}
+            logger.warning('Dogs Vote ', extra=properties)
 
             # Return results
             return render_template("index.html", value1=int(vote1), value2=int(vote2), button1=button1, button2=button2, title=title)
