@@ -101,11 +101,11 @@ def index():
             r.set(button2,0)
             vote1 = r.get(button1).decode('utf-8')
             properties = {'custom_dimensions': {'Cats Vote': vote1}}
-            logger.warning("{} voted".format(button1), extra=properties)
+            # logger.warning("{} voted".format(button1), extra=properties)
 
             vote2 = r.get(button2).decode('utf-8')
             properties = {'custom_dimensions': {'Dogs Vote': vote2}}
-            logger.warning("{} voted".format(button2), extra=properties)
+            # logger.warning("{} voted".format(button2), extra=properties)
 
             return render_template("index.html", value1=int(vote1), value2=int(vote2), button1=button1, button2=button2, title=title)
 
